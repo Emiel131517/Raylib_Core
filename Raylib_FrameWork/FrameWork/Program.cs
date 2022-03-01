@@ -1,8 +1,8 @@
-﻿namespace UserLand
+﻿namespace Raylib_FrameWork
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static void Main()
 		{
 			Game game = new Game();
 			game.Play();
