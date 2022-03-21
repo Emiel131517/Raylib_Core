@@ -15,7 +15,7 @@ namespace Raylib_FrameWork
         {
             while (core.Run(scene))
             {
-                ;
+                ; 
             }
         }
     }

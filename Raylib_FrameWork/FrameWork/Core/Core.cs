@@ -34,10 +34,11 @@ namespace Raylib_FrameWork
                 Raylib.CloseWindow();
                 return false;
             }
+            float deltaTime = Raylib.GetFrameTime();
 
             Raylib.BeginDrawing();
 
-            scene.Update();
+            scene.Update(deltaTime);
 
             Raylib.EndDrawing();
 

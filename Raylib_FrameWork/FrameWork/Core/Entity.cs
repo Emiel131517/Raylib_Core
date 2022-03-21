@@ -12,5 +12,13 @@ namespace Raylib_FrameWork
         {
 
         }
+        public virtual void Update(float deltaTime)
+        {
+            //virtual, so must be override or base function will be called
+        }
+        public void AddComponent(string Name, Component component)
+        {
+            components.Add(Name, component);
+        }
     }
 }

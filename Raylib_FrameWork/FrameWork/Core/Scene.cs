@@ -11,11 +11,15 @@ namespace Raylib_FrameWork
         {
 
         }
-        public void Update()
+        public override void Update(float deltaTime)
         {
             Raylib.ClearBackground(Color.WHITE);
-
             Raylib.DrawText("Hello, world!", 12, 12, 20, Color.BLACK);
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_A))
+            {
+                Console.WriteLine("Update!");
+            }
         }
     }
 }
