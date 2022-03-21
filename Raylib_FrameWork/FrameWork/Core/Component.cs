@@ -6,7 +6,13 @@ namespace Raylib_FrameWork
 {
     public class Component
     {
-        public Component()
+        private Entity owner;
+        public Entity Owner { get { return owner; } }
+        public Component(Entity o)
+        {
+            owner = o;
+        }
+        public virtual void UpdateComponent(float deltaTime)
         {
 
         }

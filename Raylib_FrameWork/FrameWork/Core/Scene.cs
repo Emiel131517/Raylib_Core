@@ -15,10 +15,10 @@ namespace Raylib_FrameWork
         {
             Raylib.ClearBackground(Color.WHITE);
             Raylib.DrawText("Hello, world!", 12, 12, 20, Color.BLACK);
-
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_A))
+            Entity entity = new Entity();
+            if (entity.Components.ContainsKey("Transform"))
             {
-                Console.WriteLine("Update!");
+                Console.WriteLine("entity has a Transform component");
             }
         }
     }
