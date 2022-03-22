@@ -8,7 +8,7 @@ namespace Raylib_FrameWork
     {
         public AudioComponent(Entity o) : base(o)
         {
-
+            Type = ComponentType.AUDIO;
         }
     }
 }
