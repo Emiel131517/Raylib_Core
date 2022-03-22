@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Raylib-cs" Version="3.5.0" />
+		<PackageReference Include="Raylib-cs" Version="4.0.0" />
 	</ItemGroup>
 
 </Project>
