@@ -17,7 +17,7 @@ namespace Raylib_FrameWork
         public Vector2 Scale { get { return scale; } set { scale = value; } }
         public TransformComponent(Entity o) : base(o)
         {
-
+            Type = ComponentType.TRANSFORM;
         }
     }
 }

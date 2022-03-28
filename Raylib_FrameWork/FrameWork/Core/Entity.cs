@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Numerics;
 
 namespace Raylib_FrameWork
 {
@@ -21,14 +21,28 @@ namespace Raylib_FrameWork
 
             TransformComponent transform = new TransformComponent(this);
             AddComponent(ComponentType.TRANSFORM, transform);
+
+            transform.Position = new Vector2(0.0f, 0.0f);
+            transform.Rotation = 0.0f;
+            transform.Scale = new Vector2(1.0f, 1.0f);
         }
         public virtual void Update(float deltaTime)
         {
             // base function.
         }
+        public void UpdateComponents(float deltaTime)
+        {
+            foreach (var component in Components)
+            {
+                component.Value.UpdateComponent(deltaTime);
+            }
+        }
         public void AddComponent(ComponentType type, Component component)
         {
-            components.Add(type, component);
+            if (!components.ContainsKey(ComponentType.SPRITE))
+            {
+                components.Add(type, component);
+            }
         }
     }
 }

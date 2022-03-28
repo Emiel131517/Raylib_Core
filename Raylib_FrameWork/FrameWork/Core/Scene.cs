@@ -9,17 +9,15 @@ namespace Raylib_FrameWork
     {
         public Scene()
         {
+            SpriteComponent test = new SpriteComponent(this, "test.png", Color.WHITE, 0.5f, 0.5f);
+            AddComponent(ComponentType.SPRITE, test);
 
+            test.Owner.Transform.Position = new System.Numerics.Vector2(500, 500);
         }
         public override void Update(float deltaTime)
-        {
+        { 
             Raylib.ClearBackground(Color.WHITE);
-            Raylib.DrawText("Hello, world!", 12, 12, 20, Color.BLACK);
-            Entity entity = new Entity();
-            if (entity.Components.ContainsKey("Transform"))
-            {
-                Console.WriteLine("entity has a Transform component");
-            }
+            Raylib.DrawText("Hello World", 0, 0, 25, Color.BLACK);
         }
     }
 }

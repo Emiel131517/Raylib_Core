@@ -7,14 +7,14 @@ namespace Raylib_FrameWork
 {
     public sealed class ResourceManager
     {
-        private Dictionary<string, Texture2D> textures;
+        private static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
         private static readonly ResourceManager instance = new ResourceManager();
         public static ResourceManager Instance { get { return instance; } } 
         static ResourceManager()
         {
 
         }
-        public ResourceManager()
+        private ResourceManager()
         {
 
         }
@@ -27,6 +27,13 @@ namespace Raylib_FrameWork
             Texture2D texture = Raylib.LoadTexture(fileName);
             textures.Add(fileName, texture);
             return texture;
+        }
+        public void CleanUp()
+        {
+            foreach(var fileName in textures)
+            {
+                Raylib.UnloadTexture(fileName.Value);
+            }
         }
     }
 }
