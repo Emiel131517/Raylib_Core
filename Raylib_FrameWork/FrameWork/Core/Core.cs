@@ -36,9 +36,15 @@ namespace Raylib_FrameWork
                 return false;
             }
             float deltaTime = Raylib.GetFrameTime();
-            scene.UpdateComponents(deltaTime);
 
             Raylib.BeginDrawing();
+            Raylib.ClearBackground(Color.WHITE);
+
+            scene.UpdateComponents(deltaTime);
+            for (int i = 0; i < scene.Entities.Count; i++)
+            {
+                scene.Entities[i].UpdateComponents(deltaTime);
+            }
 
             scene.Update(deltaTime);
 

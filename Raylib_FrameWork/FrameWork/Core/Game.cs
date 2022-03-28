@@ -5,11 +5,11 @@ namespace Raylib_FrameWork
     public class Game
     {
         Core core;
-        Scene scene;
+        TestScene scene;
         public Game()
         {
             core = new Core(1280, 720, "Hello World");
-            scene = new Scene();
+            scene = new TestScene();
         }
         public void Play()
         {

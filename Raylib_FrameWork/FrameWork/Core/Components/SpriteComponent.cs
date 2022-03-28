@@ -34,14 +34,13 @@ namespace Raylib_FrameWork
         {
             ResourceManager rsm = ResourceManager.Instance;
             Texture2D texture = rsm.GetTexture(textureName);
-
-            float rot = Owner.Transform.Rotation;
+            float rotation = Owner.Transform.Rotation;
 
             Rectangle sourceRec = new Rectangle(0.0f, 0.0f, texture.height, texture.width);
             Rectangle destRec = new Rectangle(Owner.Transform.Position.X, Owner.Transform.Position.Y, texture.width * Owner.Transform.Scale.X, texture.height * Owner.Transform.Scale.Y);
             Vector2 pivot = new Vector2(texture.width * texturePivot.X * Owner.Transform.Scale.X, texture.height * texturePivot.Y * Owner.Transform.Scale.Y);
 
-            Raylib.DrawTexturePro(texture, sourceRec, destRec, pivot, rot, textureColor);
+            Raylib.DrawTexturePro(texture, sourceRec, destRec, pivot, rotation, textureColor);
         }
     }
 }
