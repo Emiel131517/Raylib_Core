@@ -10,6 +10,7 @@ namespace Raylib_FrameWork
     {
         Entity cat1ent;
         Entity cat2ent;
+        Sound sound;
         public TestScene()
         {
             cat1ent = new Entity();
@@ -19,6 +20,10 @@ namespace Raylib_FrameWork
 
             SpriteComponent cat1 = new SpriteComponent(cat1ent, "Assets/Kat.png", Color.WHITE);
             SpriteComponent cat2 = new SpriteComponent(cat2ent, "Assets/Kat2.png", Color.WHITE, 0, 0);
+
+            SoundComponent snd1 = new SoundComponent(cat1ent);
+            cat1ent.AddComponent(ComponentType.SOUND, snd1);
+            cat1ent.Sound.AddSound("test", "Assets/kindhuilen.wav");
 
             cat1ent.AddComponent(ComponentType.SPRITE, cat1);
             cat2ent.AddComponent(ComponentType.SPRITE, cat2);
@@ -30,6 +35,11 @@ namespace Raylib_FrameWork
         {
             cat1ent.Transform.Rotation += 50 * deltaTime;
             cat2ent.Transform.Rotation += 50 * deltaTime;
+
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+            {
+                cat1ent.Sound.PlaySound("Assets/kindhuilen.wav");
+            }
         }
     }
 }

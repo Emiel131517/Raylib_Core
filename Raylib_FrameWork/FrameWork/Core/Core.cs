@@ -21,6 +21,7 @@ namespace Raylib_FrameWork
         private void Init()
         {
             Raylib.InitWindow(width, height, windowName);
+            Raylib.InitAudioDevice();
         }
         public bool Run(Scene scene)
         {
@@ -32,6 +33,7 @@ namespace Raylib_FrameWork
             if (Raylib.WindowShouldClose())
             {
                 ResourceManager.Instance.CleanUp();
+                Raylib.CloseAudioDevice();
                 Raylib.CloseWindow();
                 return false;
             }

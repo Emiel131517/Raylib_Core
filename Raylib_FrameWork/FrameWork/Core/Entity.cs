@@ -13,7 +13,8 @@ namespace Raylib_FrameWork
         // get individual components
         public TransformComponent Transform { get { return (TransformComponent)components[ComponentType.TRANSFORM]; } }
         public SpriteComponent Sprite { get { return (SpriteComponent)components[ComponentType.SPRITE]; } }
-        public AudioComponent Audio { get { return (AudioComponent)components[ComponentType.AUDIO]; } }
+        public MusicComponent Audio { get { return (MusicComponent)components[ComponentType.MUSIC]; } }
+        public SoundComponent Sound { get { return (SoundComponent)components[ComponentType.SOUND]; } }
 
         public Entity()
         {

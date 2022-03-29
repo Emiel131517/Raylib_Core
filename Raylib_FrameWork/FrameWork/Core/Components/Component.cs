@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Raylib_FrameWork
 {
-    public enum ComponentType { NONE, TRANSFORM, SPRITE, AUDIO };
+    public enum ComponentType { NONE, TRANSFORM, SPRITE, MUSIC, SOUND };
     public class Component
     {
         //fields
