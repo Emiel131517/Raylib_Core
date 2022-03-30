@@ -9,23 +9,21 @@ namespace Raylib_FrameWork
     {
         private ResourceManager rsm = ResourceManager.Instance;
         private Sound sound;
-        private string fileName;
         private float soundVolume;
         private float soundPitch;
         private Dictionary<string, Sound> sounds;
-        public string FileName { get { return fileName; } set { fileName = value; } }
         public float SoundVolume { get { return soundVolume; } set { soundVolume = value; } }
         public float SoundPitch { get { return soundPitch; } set { soundPitch = value; } }
         public Dictionary<string, Sound> Sounds { get { return sounds; } set { sounds = value; } }  
         public SoundComponent(Entity o) : base(o)
         {
+            sounds = new Dictionary<string, Sound>();
             Type = ComponentType.SOUND;
         }
-        public void AddSound(string name, string soundName)
+        public void AddSound(string soundName, string fileName)
         {
-            fileName = soundName;
-            sound = rsm.GetSound(fileName);
-            sounds.Add(name, sound);
+            Sound s = rsm.GetSound(fileName);
+            sounds.Add(soundName, s);
         }
         public void PlaySound(string fileName)
         {
@@ -42,6 +40,7 @@ namespace Raylib_FrameWork
         }
         public void PlaySoundWVolume(string fileName, float volume)
         {
+            sound = rsm.GetSound(fileName);
             SoundVolume = volume;
             soundPitch = 1f;
 
@@ -55,6 +54,7 @@ namespace Raylib_FrameWork
         }
         public void PlaySoundWPitch(string fileName, float volume, float pitch)
         {
+            sound = rsm.GetSound(fileName);
             SoundVolume = volume;
             soundPitch = pitch;
 
@@ -68,6 +68,7 @@ namespace Raylib_FrameWork
         }
         public void PlaySoundMulti(string fileName)
         {
+            sound = rsm.GetSound(fileName);
             soundVolume = 1f;
             soundPitch = 1f;
             
@@ -81,6 +82,7 @@ namespace Raylib_FrameWork
         }
         public void PlaySoundMultiWVolume(string fileName, float volume)
         {
+            sound = rsm.GetSound(fileName);
             soundVolume = volume;
             soundPitch = 1f;
 
@@ -94,6 +96,7 @@ namespace Raylib_FrameWork
         }
         public void PlaySoundMultiWPitch(string fileName, float volume, float pitch)
         {
+            sound = rsm.GetSound(fileName);
             soundVolume = volume;
             soundPitch = pitch;
 

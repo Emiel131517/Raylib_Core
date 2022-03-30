@@ -15,6 +15,16 @@ namespace Raylib_FrameWork
         public string FileName { get { return fileName; } set { fileName = value; } }
         public float MusicVolume { get { return musicVolume; } set { musicVolume = value; } }
         public float MusicPitch { get { return musicPitch; } set { musicPitch = value; } }
+        public MusicComponent(Entity o, string name) : base(o)
+        {
+            Type = ComponentType.MUSIC;
+            fileName = name;
+            musicVolume = 1f;
+            musicPitch = 1f;
+
+            music = rsm.GetMusic(fileName);
+            PlayMusic();
+        }
         public MusicComponent(Entity o, string name, float volume) : base(o)
         {
             Type = ComponentType.MUSIC;
