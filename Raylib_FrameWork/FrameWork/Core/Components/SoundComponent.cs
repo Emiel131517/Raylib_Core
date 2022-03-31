@@ -8,105 +8,73 @@ namespace Raylib_FrameWork
     public class SoundComponent : Component
     {
         private ResourceManager rsm = ResourceManager.Instance;
-        private Sound sound;
         private float soundVolume;
         private float soundPitch;
-        private Dictionary<string, Sound> sounds;
         public float SoundVolume { get { return soundVolume; } set { soundVolume = value; } }
-        public float SoundPitch { get { return soundPitch; } set { soundPitch = value; } }
-        public Dictionary<string, Sound> Sounds { get { return sounds; } set { sounds = value; } }  
+        public float SoundPitch { get { return soundPitch; } set { soundPitch = value; } }  
         public SoundComponent(Entity o) : base(o)
         {
-            sounds = new Dictionary<string, Sound>();
             Type = ComponentType.SOUND;
-        }
-        public void AddSound(string soundName, string fileName)
-        {
-            Sound s = rsm.GetSound(fileName);
-            sounds.Add(soundName, s);
         }
         public void PlaySound(string fileName)
         {
+            Sound s = rsm.GetSound(fileName);
             soundVolume = 1f;
             soundPitch = 1f;
-            
-            Raylib.SetSoundPitch(sound, soundPitch);
-            Raylib.SetSoundVolume(sound, soundVolume);
 
-            if (sounds.ContainsKey(fileName))
-            {
-                Raylib.PlaySound(sound);
-            }
+            Raylib.SetSoundPitch(s, soundPitch);
+            Raylib.SetSoundVolume(s, soundVolume);
+            Raylib.PlaySound(s);
         }
         public void PlaySoundWVolume(string fileName, float volume)
         {
-            sound = rsm.GetSound(fileName);
+            Sound s = rsm.GetSound(fileName);
             SoundVolume = volume;
             soundPitch = 1f;
 
-            Raylib.SetSoundPitch(sound, soundPitch);
-            Raylib.SetSoundVolume(sound, soundVolume);
-
-            if (sounds.ContainsKey(fileName))
-            {
-                Raylib.PlaySound(sound);
-            }
+            Raylib.SetSoundPitch(s, soundPitch);
+            Raylib.SetSoundVolume(s, soundVolume);
+            Raylib.PlaySound(s);
         }
         public void PlaySoundWPitch(string fileName, float volume, float pitch)
         {
-            sound = rsm.GetSound(fileName);
+            Sound s = rsm.GetSound(fileName);
             SoundVolume = volume;
             soundPitch = pitch;
 
-            Raylib.SetSoundPitch(sound, soundPitch);
-            Raylib.SetSoundVolume(sound, soundVolume);
-
-            if (sounds.ContainsKey(fileName))
-            {
-                Raylib.PlaySound(sound);
-            }
+            Raylib.SetSoundPitch(s, soundPitch);
+            Raylib.SetSoundVolume(s, soundVolume);
+            Raylib.PlaySound(s);
         }
         public void PlaySoundMulti(string fileName)
         {
-            sound = rsm.GetSound(fileName);
+            Sound s = rsm.GetSound(fileName);
             soundVolume = 1f;
             soundPitch = 1f;
-            
-            Raylib.SetSoundPitch(sound, soundPitch);
-            Raylib.SetSoundVolume(sound, soundVolume);
 
-            if (sounds.ContainsKey(fileName))
-            {
-                Raylib.PlaySoundMulti(sound);
-            }
+            Raylib.SetSoundPitch(s, soundPitch);
+            Raylib.SetSoundVolume(s, soundVolume);
+            Raylib.PlaySoundMulti(s);
         }
         public void PlaySoundMultiWVolume(string fileName, float volume)
         {
-            sound = rsm.GetSound(fileName);
+            Sound s = rsm.GetSound(fileName);
             soundVolume = volume;
             soundPitch = 1f;
 
-            Raylib.SetSoundPitch(sound, soundPitch);
-            Raylib.SetSoundVolume(sound, soundVolume);
-
-            if (sounds.ContainsKey(fileName))
-            {
-                Raylib.PlaySoundMulti(sound);
-            }
+            Raylib.SetSoundPitch(s, soundPitch);
+            Raylib.SetSoundVolume(s, soundVolume);
+            Raylib.PlaySoundMulti(s);
         }
         public void PlaySoundMultiWPitch(string fileName, float volume, float pitch)
         {
-            sound = rsm.GetSound(fileName);
+            Sound s = rsm.GetSound(fileName);
             soundVolume = volume;
             soundPitch = pitch;
 
-            Raylib.SetSoundPitch(sound, soundPitch);
-            Raylib.SetSoundVolume(sound, soundVolume);
-
-            if (sounds.ContainsKey(fileName))
-            {
-                Raylib.PlaySoundMulti(sound);
-            }
+            Raylib.SetSoundPitch(s, soundPitch);
+            Raylib.SetSoundVolume(s, soundVolume);
+            Raylib.PlaySoundMulti(s);
         }
     }
 }

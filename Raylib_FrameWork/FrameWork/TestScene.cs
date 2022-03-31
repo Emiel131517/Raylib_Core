@@ -25,7 +25,6 @@ namespace Raylib_FrameWork
 
             SoundComponent snd1 = new SoundComponent(cat1ent);
             cat1ent.AddComponent(ComponentType.SOUND, snd1);
-            cat1ent.Sound.AddSound("test", "Assets/kindhuilen.wav");
 
             cat1ent.AddComponent(ComponentType.SPRITE, cat1);
             cat2ent.AddComponent(ComponentType.SPRITE, cat2);
@@ -40,7 +39,11 @@ namespace Raylib_FrameWork
 
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
-                cat1ent.Sound.PlaySoundWPitch("test", 1, 1f);
+                cat1ent.Sound.PlaySound("Assets/kindhuilen.wav");
+            }
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_A))
+            {
+                cat1ent.Sound.PlaySoundMultiWPitch("Assets/Best_Song_Ever.wav", 1f, 0.5f);
             }
         }
     }
