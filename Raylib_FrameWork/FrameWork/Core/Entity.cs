@@ -15,6 +15,7 @@ namespace Raylib_FrameWork
         public SpriteComponent Sprite { get { return (SpriteComponent)components[ComponentType.SPRITE]; } }
         public MusicComponent Music { get { return (MusicComponent)components[ComponentType.MUSIC]; } }
         public SoundComponent Sound { get { return (SoundComponent)components[ComponentType.SOUND]; } }
+        public ButtonComponent Button { get { return (ButtonComponent)components[ComponentType.BUTTON]; } }
 
         public Entity()
         {

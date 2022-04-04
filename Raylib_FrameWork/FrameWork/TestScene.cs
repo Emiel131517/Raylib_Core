@@ -10,6 +10,7 @@ namespace Raylib_FrameWork
     {
         Entity cat1ent;
         Entity cat2ent;
+        Button button;
         public TestScene()
         {
             cat1ent = new Entity();
@@ -17,11 +18,11 @@ namespace Raylib_FrameWork
             Entities.Add(cat1ent);
             Entities.Add(cat2ent);
 
+            button = new Button("Assets/button.png", 100, 100);
+            button.Transform.Position = new Vector2(512, 512);
+
             SpriteComponent cat1 = new SpriteComponent(cat1ent, "Assets/Kat.png", Color.WHITE);
             SpriteComponent cat2 = new SpriteComponent(cat2ent, "Assets/Kat2.png", Color.WHITE, 0, 0);
-
-            /*            MusicComponent msc1 = new MusicComponent(cat1ent, "Assets/Best_Song_Ever.wav", 1.5f, 0.1f);
-                        cat1ent.AddComponent(ComponentType.MUSIC, msc1);*/
 
             SoundComponent snd1 = new SoundComponent(cat1ent);
             cat1ent.AddComponent(ComponentType.SOUND, snd1);
@@ -39,7 +40,7 @@ namespace Raylib_FrameWork
 
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
-                cat1ent.Sound.PlaySound("Assets/kindhuilen.wav");
+                cat1ent.Sound.PlaySoundWPitch("Assets/kindhuilen.wav", 1.5f, 0.25f);
             }
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_A))
             {

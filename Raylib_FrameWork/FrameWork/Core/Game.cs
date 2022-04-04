@@ -1,15 +1,15 @@
-﻿using Raylib_cs;
+﻿// no usings
 
 namespace Raylib_FrameWork
 {
     public class Game
     {
         Core core;
-        TestScene scene;
-        public Game()
+        Scene scene;
+        public Game(Scene scene)
         {
             core = new Core(1280, 720, "Hello World");
-            scene = new TestScene();
+            this.scene = scene;
         }
         public void Play()
         {

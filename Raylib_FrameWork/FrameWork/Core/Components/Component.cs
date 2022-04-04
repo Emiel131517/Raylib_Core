@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Numerics;
 
 namespace Raylib_FrameWork
 {
-    public enum ComponentType { NONE, TRANSFORM, SPRITE, MUSIC, SOUND };
+    public enum ComponentType { NONE, TRANSFORM, SPRITE, MUSIC, SOUND, BUTTON };
     public class Component
     {
         //fields

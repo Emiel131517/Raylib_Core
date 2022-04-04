@@ -18,18 +18,22 @@ namespace Raylib_FrameWork
 
             Init();
         }
+        // initialize
         private void Init()
         {
             Raylib.InitWindow(width, height, windowName);
             Raylib.InitAudioDevice();
         }
+        // Start running a scene
         public bool Run(Scene scene)
         {
+            // Check if there is a scene
             if (scene == null)
             {
-                Console.WriteLine("Scene is null");
+                Console.WriteLine("##ERROR## Scene is null");
                 return false;
             }
+            // Check if the game should close 
             if (Raylib.WindowShouldClose())
             {
                 ResourceManager.Instance.CleanUp();
@@ -37,17 +41,20 @@ namespace Raylib_FrameWork
                 Raylib.CloseWindow();
                 return false;
             }
+            // Save deltaTime
             float deltaTime = Raylib.GetFrameTime();
 
+            // Begin loading pixels
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.WHITE);
 
-            scene.UpdateComponents(deltaTime);
+            // Update all components
             for (int i = 0; i < scene.Entities.Count; i++)
             {
                 scene.Entities[i].UpdateComponents(deltaTime);
             }
 
+            // Update the scene
             scene.Update(deltaTime);
 
             Raylib.EndDrawing();

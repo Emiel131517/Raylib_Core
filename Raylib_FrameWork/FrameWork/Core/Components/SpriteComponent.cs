@@ -12,17 +12,18 @@ namespace Raylib_FrameWork
         public string TextureName { get { return textureName; } }
         public Color TextureColor { get { return textureColor;} }
         public Vector2 TexturePivot { get { return texturePivot;} }
-        public SpriteComponent(Entity o, string name, Color color) : base(o)
+        public SpriteComponent(Entity o, string fileName, Color color) : base(o)
         {
             Type = ComponentType.SPRITE;
-            textureName = name;
+            textureName = fileName;
             textureColor = color;
+            
             texturePivot = new Vector2(0.5f, 0.5f);
         }
-        public SpriteComponent(Entity o, string name, Color color, float pivotx, float pivoty) : base(o)
+        public SpriteComponent(Entity o, string fileName, Color color, float pivotx, float pivoty) : base(o)
         {
             Type = ComponentType.SPRITE;
-            textureName = name;
+            textureName = fileName;
             textureColor = color;
             texturePivot = new Vector2(pivotx, pivoty);
         }
