@@ -41,7 +41,7 @@ namespace Raylib_FrameWork
         }
         public void AddComponent(ComponentType type, Component component)
         {
-            if (!components.ContainsKey(ComponentType.SPRITE))
+            if (!components.ContainsKey(type))
             {
                 components.Add(type, component);
             }

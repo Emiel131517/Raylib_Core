@@ -15,13 +15,16 @@ namespace Raylib_FrameWork
         {
             cat1ent = new Entity();
             cat2ent = new Entity();
+            button = new Button("Assets/button.png", "Assets/kindhuilen.wav");
             Entities.Add(cat1ent);
             Entities.Add(cat2ent);
+            Entities.Add(button);
 
-            button = new Button("Assets/button.png", 100, 100);
-            button.Transform.Position = new Vector2(512, 512);
+            button.Transform.Position.X = 125;
+            button.Transform.Position.Y = 125;
 
-            SpriteComponent cat1 = new SpriteComponent(cat1ent, "Assets/Kat.png", Color.WHITE);
+
+            SpriteComponent cat1 = new SpriteComponent(cat1ent, "Assets/kat.png", Color.WHITE);
             SpriteComponent cat2 = new SpriteComponent(cat2ent, "Assets/Kat2.png", Color.WHITE, 0, 0);
 
             SoundComponent snd1 = new SoundComponent(cat1ent);

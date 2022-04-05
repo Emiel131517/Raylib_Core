@@ -25,29 +25,8 @@ namespace Raylib_FrameWork
             buttonHeight = height;
             buttonSound = soundName;
 
-            buttonBounds = new Rectangle(Owner.Transform.Position.X, Owner.Transform.Position.Y, buttonWidth, buttonHeight);
-        }
-        public override void UpdateComponent(float deltaTime)
-        {
-            Console.WriteLine(buttonState);
-            buttonAction = false;
-            Vector2 mousePos = Raylib.GetMousePosition();
-            if (Raylib.CheckCollisionPointRec(mousePos, buttonBounds))
-            {
-                if (Raylib.IsMouseButtonDown(MouseButton.MOUSE_LEFT_BUTTON))
-                {
-                    buttonState = 2;
-                    if (Raylib.IsMouseButtonReleased(MouseButton.MOUSE_LEFT_BUTTON))
-                    {
-                        buttonAction = true;
-                        Owner.Sound.PlaySound(buttonSound);
-                    }
-                }
-                else
-                {
-                    buttonState = 1;
-                }
-            }
+            // Setting the boundries of the button
+
         }
     }
 }

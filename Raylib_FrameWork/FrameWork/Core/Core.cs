@@ -41,10 +41,10 @@ namespace Raylib_FrameWork
                 Raylib.CloseWindow();
                 return false;
             }
-            // Save deltaTime
+            // Store deltaTime
             float deltaTime = Raylib.GetFrameTime();
 
-            // Begin loading pixels
+            // Begin drawing pixels
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.WHITE);
 
