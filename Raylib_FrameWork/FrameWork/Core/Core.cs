@@ -52,6 +52,7 @@ namespace Raylib_FrameWork
             for (int i = 0; i < scene.Entities.Count; i++)
             {
                 scene.Entities[i].UpdateComponents(deltaTime);
+                scene.Entities[i].Update(deltaTime);
             }
 
             // Update the scene
