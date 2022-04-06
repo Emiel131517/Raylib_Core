@@ -22,7 +22,7 @@ namespace Raylib_FrameWork
 
             button.Transform.Position.X = 600;
             button.Transform.Position.Y = 500;
-            button.Transform.Scale.X = 1.5f;
+            button.Transform.Scale = new Vector2(1.5f, 1f);
 
             SpriteComponent cat1 = new SpriteComponent(cat1ent, "Assets/kat.png", Color.WHITE);
             SpriteComponent cat2 = new SpriteComponent(cat2ent, "Assets/Kat2.png", Color.WHITE, 0, 0);

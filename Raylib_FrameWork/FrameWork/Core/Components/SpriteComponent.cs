@@ -9,14 +9,14 @@ namespace Raylib_FrameWork
         private string textureName;
         private Color textureColor;
         private Vector2 texturePivot;
-        private int width;
-        private int height;
+        private float width;
+        private float height;
 
         public string TextureName { get { return textureName; } }
         public Color TextureColor { get { return textureColor;} }
         public Vector2 TexturePivot { get { return texturePivot;} }
-        public int Width { get { return width; } set { width = value; } }
-        public int Height { get { return height; } set { height = value; } }
+        public float Width { get { return width; } set { width = value; } }
+        public float Height { get { return height; } set { height = value; } }
         public SpriteComponent(Entity o, string fileName, Color color) : base(o)
         {
             Type = ComponentType.SPRITE;

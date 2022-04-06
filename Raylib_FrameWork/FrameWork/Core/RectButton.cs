@@ -8,18 +8,24 @@ namespace Raylib_FrameWork
 {
     public class RectButton : Button
     {
+        private string buttonTexture;
+        private string buttonSound;
         private float buttonWidth;
         private float buttonHeight;
         private bool buttonAction;
         private Rectangle buttonBounds;
+        SpriteComponent sprite;
+        SoundComponent sound;
         // Basic button constructor
         public RectButton(string textureName, string soundName)
         {
             // Add components
-            SpriteComponent sprite = new SpriteComponent(this, textureName, Color.WHITE);
-            SoundComponent sound = new SoundComponent(this);
+            sprite = new SpriteComponent(this, textureName, Color.WHITE);
+            sound = new SoundComponent(this);
             AddComponent(ComponentType.SPRITE, sprite);
             AddComponent(ComponentType.SOUND, sound);
+
+            buttonSound = soundName;
 
             State = ButtonState.NORMAL;
         }
@@ -29,15 +35,22 @@ namespace Raylib_FrameWork
         }
         private void CheckButton()
         {
-            Console.WriteLine(State);
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_T))
+            {
+                Console.WriteLine(State);
+            }
+            if (buttonAction == true)
+            {
+                Console.WriteLine("Button is pressed");
+            }
             buttonAction = false;
             Vector2 mousePos = Raylib.GetMousePosition();
 
             // Assign width and height of the texture to the width and height of the button
             if (buttonWidth == 0)
             {
-                buttonWidth = Sprite.Width;
-                buttonHeight = Sprite.Height;
+                buttonWidth = sprite.Width * Transform.Scale.X;
+                buttonHeight = sprite.Height * Transform.Scale.Y;
                 buttonBounds = new Rectangle(Transform.Position.X - buttonWidth / 2, Transform.Position.Y - (buttonHeight * Transform.Scale.Y) / 2, buttonWidth, buttonHeight);
             }
 
@@ -45,6 +58,20 @@ namespace Raylib_FrameWork
             if (Raylib.CheckCollisionPointRec(mousePos, buttonBounds))
             {
                 State = ButtonState.HOVER;
+                if (Raylib.IsMouseButtonDown(MouseButton.MOUSE_LEFT_BUTTON))
+                {
+                    State = ButtonState.PRESSED;
+                }
+                else
+                {
+                    State = ButtonState.HOVER;
+                }
+                if (Raylib.IsMouseButtonReleased(MouseButton.MOUSE_LEFT_BUTTON))
+                {
+                    buttonAction = true;
+                    sound.PlaySoundMulti(buttonSound);
+                    // button clicked - do something.
+                }
             }
             else
             {
