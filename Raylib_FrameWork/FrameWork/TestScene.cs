@@ -10,19 +10,22 @@ namespace Raylib_FrameWork
     {
         Entity cat1ent;
         Entity cat2ent;
-        RectButton button;
+        RectButton rectButton;
+        CircButton circButton;
         public TestScene()
         {
             cat1ent = new Entity();
             cat2ent = new Entity();
-            button = new RectButton("Assets/ButtonRect.png", "Assets/kindhuilen.wav");
+            rectButton = new RectButton("Assets/ButtonRect.png", "Assets/kindhuilen.wav");
+            circButton = new CircButton("Assets/circbutton.png", "Assets/retro.wav");
             Entities.Add(cat1ent);
             Entities.Add(cat2ent);
-            Entities.Add(button);
+            Entities.Add(rectButton);
+            Entities.Add(circButton);
 
-            button.Transform.Position.X = 600;
-            button.Transform.Position.Y = 500;
-            button.Transform.Scale = new Vector2(1.5f, 1f);
+            rectButton.Transform.Position = new Vector2(150f, 100f);
+
+            circButton.Transform.Position = new Vector2(350f, 100f);
 
             SpriteComponent cat1 = new SpriteComponent(cat1ent, "Assets/kat.png", Color.WHITE);
             SpriteComponent cat2 = new SpriteComponent(cat2ent, "Assets/Kat2.png", Color.WHITE, 0, 0);

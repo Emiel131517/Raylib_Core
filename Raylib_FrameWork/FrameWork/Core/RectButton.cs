@@ -8,7 +8,6 @@ namespace Raylib_FrameWork
 {
     public class RectButton : Button
     {
-        private string buttonTexture;
         private string buttonSound;
         private float buttonWidth;
         private float buttonHeight;
@@ -16,6 +15,10 @@ namespace Raylib_FrameWork
         private Rectangle buttonBounds;
         SpriteComponent sprite;
         SoundComponent sound;
+
+        public bool ButtonAction { get { return buttonAction; } }
+        public float ButtonWidth { get { return buttonWidth; } }
+        public bool ButtonHeight { get { return ButtonHeight; } }
         // Basic button constructor
         public RectButton(string textureName, string soundName)
         {
@@ -35,14 +38,6 @@ namespace Raylib_FrameWork
         }
         private void CheckButton()
         {
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_T))
-            {
-                Console.WriteLine(State);
-            }
-            if (buttonAction == true)
-            {
-                Console.WriteLine("Button is pressed");
-            }
             buttonAction = false;
             Vector2 mousePos = Raylib.GetMousePosition();
 

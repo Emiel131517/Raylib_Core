@@ -8,24 +8,25 @@ namespace Raylib_FrameWork
 {
     public class CircButton : Button
     {
-        SpriteComponent sprite;
-        private float buttonWidth;
-        private float buttonHeight;
+        private string buttonSound;
+        private float buttonRadius;
         private bool buttonAction;
-        private Rectangle buttonBounds;
+        // private Circle buttonBounds;
+        SpriteComponent sprite;
+        SoundComponent sound;
+
+        public bool ButtonAction { get { return buttonAction; } }
+        public float ButtonRadius { get { return buttonRadius;} set { buttonRadius = value; } }
         // Basic button constructor
         public CircButton(string textureName, string soundName)
         {
             // Add components
             sprite = new SpriteComponent(this, textureName, Color.WHITE);
-            SoundComponent sound = new SoundComponent(this);
+            sound = new SoundComponent(this);
             AddComponent(ComponentType.SPRITE, sprite);
             AddComponent(ComponentType.SOUND, sound);
 
-            // Assign width and height of the texture to the width and height of the button
-            buttonWidth = sprite.Width;
-            buttonHeight = sprite.Height;
-            buttonBounds = new Rectangle(Transform.Position.X, Transform.Position.Y, buttonWidth, buttonHeight);
+            buttonSound = soundName;
 
             State = ButtonState.NORMAL;
         }
@@ -35,21 +36,40 @@ namespace Raylib_FrameWork
         }
         private void CheckButton()
         {
-            Console.WriteLine(State);
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_T))
+            {
+                Console.WriteLine(State);
+            }
+            if (buttonAction == true)
+            {
+                Console.WriteLine("Button is pressed");
+            }
             buttonAction = false;
             Vector2 mousePos = Raylib.GetMousePosition();
 
-            if (buttonWidth == 0)
+            // Assign width and height of the texture to the width and height of the button
+            if (buttonRadius == 0)
             {
-                buttonWidth = sprite.Width;
-                buttonHeight = sprite.Height;
-                buttonBounds = new Rectangle(Transform.Position.X, Transform.Position.Y, buttonWidth, buttonHeight);
+                buttonRadius = sprite.Width * Transform.Scale.X / 2;
             }
-
             // Check if the mouse is hovering over the button
-            if (Raylib.CheckCollisionPointRec(mousePos, buttonBounds))
+            if (Raylib.CheckCollisionPointCircle(mousePos, Transform.Position, buttonRadius))
             {
                 State = ButtonState.HOVER;
+                if (Raylib.IsMouseButtonDown(MouseButton.MOUSE_LEFT_BUTTON))
+                {
+                    State = ButtonState.PRESSED;
+                }
+                else
+                {
+                    State = ButtonState.HOVER;
+                }
+                if (Raylib.IsMouseButtonReleased(MouseButton.MOUSE_LEFT_BUTTON))
+                {
+                    buttonAction = true;
+                    sound.PlaySoundMulti(buttonSound);
+                    // button clicked - do something.
+                }
             }
             else
             {
