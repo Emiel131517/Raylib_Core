@@ -5,7 +5,7 @@ using System.Numerics;
 
 namespace Raylib_FrameWork
 {
-    public enum ComponentType { NONE, TRANSFORM, SPRITE, MUSIC, SOUND, BUTTON };
+    public enum ComponentType { NONE, TRANSFORM, SPRITE, MUSIC, SOUND, PHYSICS };
     public class Component
     {
         //fields
