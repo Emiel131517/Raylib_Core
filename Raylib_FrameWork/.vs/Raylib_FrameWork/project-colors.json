@@ -15,7 +15,17 @@
       "ProjectGuid": "fce202e2-a299-4222-bd20-073a38fc15e6",
       "DisplayName": "Solution Items",
       "ColorIndex": 1
+    },
+    "57231777-84cb-4ce3-920a-74be4c0f98c7": {
+      "ProjectGuid": "57231777-84cb-4ce3-920a-74be4c0f98c7",
+      "DisplayName": "Game",
+      "ColorIndex": 2
+    },
+    "d6601185-af35-42cc-bee5-e0820f338453": {
+      "ProjectGuid": "d6601185-af35-42cc-bee5-e0820f338453",
+      "DisplayName": "FrameWork_Raylib",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 4
 }

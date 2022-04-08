@@ -4,7 +4,7 @@
 	{
 		static void Main()
 		{
-			TestScene scene = new TestScene();
+			Scene scene = new Scene();
 
 			Game game = new Game(scene);
 			game.Play();
