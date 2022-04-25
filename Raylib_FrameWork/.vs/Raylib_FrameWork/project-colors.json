@@ -15,7 +15,37 @@
       "ProjectGuid": "fce202e2-a299-4222-bd20-073a38fc15e6",
       "DisplayName": "Solution Items",
       "ColorIndex": 1
+    },
+    "57231777-84cb-4ce3-920a-74be4c0f98c7": {
+      "ProjectGuid": "57231777-84cb-4ce3-920a-74be4c0f98c7",
+      "DisplayName": "Game",
+      "ColorIndex": 2
+    },
+    "d6601185-af35-42cc-bee5-e0820f338453": {
+      "ProjectGuid": "d6601185-af35-42cc-bee5-e0820f338453",
+      "DisplayName": "FrameWork_Library",
+      "ColorIndex": 3
+    },
+    "f7e5bfe7-8056-44e0-953b-fe9070cc9718": {
+      "ProjectGuid": "f7e5bfe7-8056-44e0-953b-fe9070cc9718",
+      "DisplayName": "TestGame",
+      "ColorIndex": 4
+    },
+    "213fd3ea-e8e6-43f9-8ad8-d32c5f970273": {
+      "ProjectGuid": "213fd3ea-e8e6-43f9-8ad8-d32c5f970273",
+      "DisplayName": "TestGame",
+      "ColorIndex": 5
+    },
+    "8330c99b-6cf0-4b6a-bb6a-5dcd51f38b06": {
+      "ProjectGuid": "8330c99b-6cf0-4b6a-bb6a-5dcd51f38b06",
+      "DisplayName": "Raylib_FrameWork",
+      "ColorIndex": 6
+    },
+    "444339a3-1a8c-4163-800f-7958a3c23995": {
+      "ProjectGuid": "444339a3-1a8c-4163-800f-7958a3c23995",
+      "DisplayName": "FrameWorkSource",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 8
 }

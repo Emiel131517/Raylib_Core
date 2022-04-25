@@ -36,14 +36,6 @@ namespace Raylib_FrameWork
         }
         private void CheckButton()
         {
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_T))
-            {
-                Console.WriteLine(State);
-            }
-            if (buttonAction == true)
-            {
-                Console.WriteLine("Button is pressed");
-            }
             buttonAction = false;
             Vector2 mousePos = Raylib.GetMousePosition();
 
