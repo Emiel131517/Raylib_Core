@@ -30,7 +30,7 @@ namespace Raylib_FrameWork
 
             buttonSound = soundName;
 
-            State = ButtonState.NORMAL;
+            State = ButtonState.IDLE;
         }
         public override void Update(float deltaTime)
         {
@@ -70,7 +70,7 @@ namespace Raylib_FrameWork
             }
             else
             {
-                State = ButtonState.NORMAL;
+                State = ButtonState.IDLE;
             }
         }
     }

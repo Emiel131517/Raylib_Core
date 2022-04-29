@@ -8,13 +8,12 @@ namespace Raylib_FrameWork
 {
     public class PhysicsComponent : Component
     {
-        private Vector2 velocity;
+        public Vector2 velocity;
         private Vector2 acceleration;
         private Vector2 gravity;
         private float mass;
         private bool useGravity;
 
-        public Vector2 Velocity { get { return velocity; } set { velocity = value; } }
         public Vector2 Acceleration { get { return acceleration; } set { acceleration = value; } } 
         public Vector2 Gravity { get { return gravity; } set { gravity = value; } }
         public float Mass { get { return mass; } set { mass = value; } }

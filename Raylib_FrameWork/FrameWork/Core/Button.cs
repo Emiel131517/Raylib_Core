@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Raylib_FrameWork
 {
-    public enum ButtonState { NORMAL, HOVER, PRESSED };
+    public enum ButtonState { IDLE, HOVER, PRESSED };
     public class Button : Entity
     {
         private ButtonState state;

@@ -10,12 +10,8 @@ namespace Raylib_FrameWork
     {
         private string buttonSound;
         private float buttonRadius;
-        private bool buttonAction;
-        // private Circle buttonBounds;
         SpriteComponent sprite;
         SoundComponent sound;
-
-        public bool ButtonAction { get { return buttonAction; } }
         public float ButtonRadius { get { return buttonRadius;} set { buttonRadius = value; } }
         // Basic button constructor
         public CircButton(string textureName, string soundName)
@@ -28,7 +24,7 @@ namespace Raylib_FrameWork
 
             buttonSound = soundName;
 
-            State = ButtonState.NORMAL;
+            State = ButtonState.IDLE;
         }
         public override void Update(float deltaTime)
         {
@@ -36,7 +32,6 @@ namespace Raylib_FrameWork
         }
         private void CheckButton()
         {
-            buttonAction = false;
             Vector2 mousePos = Raylib.GetMousePosition();
 
             // Assign width and height of the texture to the width and height of the button
@@ -58,14 +53,13 @@ namespace Raylib_FrameWork
                 }
                 if (Raylib.IsMouseButtonReleased(MouseButton.MOUSE_LEFT_BUTTON))
                 {
-                    buttonAction = true;
                     sound.PlaySoundMulti(buttonSound);
                     // button clicked - do something.
                 }
             }
             else
             {
-                State = ButtonState.NORMAL;
+                State = ButtonState.IDLE;
             }
         }
     }
