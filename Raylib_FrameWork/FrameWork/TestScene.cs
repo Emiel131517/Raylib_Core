@@ -24,8 +24,8 @@ namespace Raylib_FrameWork
             cat1ent.AddComponent(ComponentType.PHYSICS, physics);
 
             cat1ent.Transform.Position = new Vector2(1150, 200);
-            cat1ent.Physics.Mass = 10;
-            cat1ent.Physics.Gravity = new Vector2(0, 25);
+            cat1ent.Physics.Mass = 3;
+            cat1ent.Physics.Gravity = new Vector2(0, 12.5f);
 
 
             // Buttons
